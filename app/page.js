@@ -13,6 +13,10 @@ const page = () => {
   const router =useRouter()
   axios.defaults.withCredentials=true;
 
+  const handleGoogleAuth=()=>{
+    window.location.href="http://localhost:3001/auth/google"
+  }
+
   const sendData = async () => {
       try {
         const response = await axios.post(
@@ -37,7 +41,7 @@ const page = () => {
  
  
 
-  function getCookie(name) {
+ function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
@@ -60,7 +64,7 @@ const page = () => {
             <button onClick={()=>sendData()} className="bg-blue-600 p-2 text-white text-lg rounded-lg w-[48%]">Login</button>
             <button onClick={()=>router.push('/register')} className="bg-blue-600 rounded-lg text-lg text-white w-[48%] p-2">Register</button>
       </div>
-     
+      <button onClick={()=>handleGoogleAuth()} className="w-[90%] p-3  border-2 border-white rounded-md flex items-center gap-4 justify-center hover:text-blue-400 text-lg hover:border-blue-400"> <Image src="/google-symbol.png" alt="" width={25} height={25}/>Sign in with Google</button>     
     </div> 
     </div>
   )

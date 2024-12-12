@@ -20,6 +20,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <script
+            async
+            defer
+            src="https://apis.google.com/js/platform.js"
+            type="text/javascript"
+          ></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
